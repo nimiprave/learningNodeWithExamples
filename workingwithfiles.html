@@ -1,0 +1,38 @@
+<input type='file' accept='image/*' onchange='openFile(event)'><br>
+<p id='output'/>
+<script>
+  var openFile = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataastext = reader.result;
+      var output = document.getElementById('output');
+     // output.innerText = dataastext;
+      var parser = new DOMParser();
+      var xmlDoc = parser.parseFromString(dataastext,"text/xml");
+      var texttoshow = xmlDoc.getElementById("PRECO_CX_TSK_PAR");    
+//      var path = "/PRECO_CX_TSK_PAR";
+//      if(xml.evaluate){
+//          var nodes = xml.evaluate(path,xml,null,XPathResult.ANY_TYPE,null);
+//          var result = nodes.iterateNext();
+//      }    
+//      
+       output.innerText = texttoshow; 
+        
+    };
+    var xml = input.files[0];
+//    var path = "/PRECO_CX_TSK_PAR";
+//      if(xml.evaluate){
+//          var nodes = xml.evaluate(path,xml,null,XPathResult.ANY_TYPE,null);
+//          var result = nodes.iterateNext();
+//      }    
+    reader.readAsText(input.files[0]);
+   // show results 
+      
+      
+  };
+</script>
+<html>
+<a rel="noopener" href="www.gmail.com" target="https://www.gmail.com" title="Image Link" data-sap-hpa-ceimo-link-type="Dynamic" data-sap-hpa-ceimo-link-outboundid="X" data-sap-hpa-ceimo-link-utm="X" data-sap-hpa-ceimo-link-trackable="X" data-sap-hpa-ceimo-link-pers="www.google.com" data-sap-hpa-ceimo-link-id="1544546048544572"><img src="" alt="Image" title="Image" style="opacity: 1;" data-sap-hpa-ceimo-image="SMOImage" data-sap-hpa-ceimo-image-type="Dynamic" data-sap-hpa-ceimo-image-pers="C:\Users\I820262\OneDrive - SAP SE\Pictures" data-sap-hpa-ceimo-image-id="1544546017005553" /></a>
+</html>

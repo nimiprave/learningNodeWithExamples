@@ -1,0 +1,1068 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<View:ColumnView xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Column="http://www.sap.com/ndb/DataModelFilter.ecore" xmlns:Type="http://www.sap.com/ndb/DataModelType.ecore" xmlns:View="http://www.sap.com/ndb/ViewModelView.ecore" schemaVersion="2.3" name="CA_RECO_ELIGIBLE_OFFERS_LEADING_PRODUCT_CATEGORY" dataCategory="DIMENSION" hierarchiesSQLEnabled="false" defaultNode="#//Projection" clientDependent="true" applyPrivilegeType="ANALYTIC_PRIVILEGE" translationRelevant="true">
+  <endUserTexts label="CA_RECO_ALL_OFFER"/>
+  <executionHints/>
+  <viewNode xsi:type="View:Projection" name="Tasks">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="MAX_RESULT">
+      <inlineType primitiveType="SMALLINT" length="5" precision="5" scale="0"/>
+    </element>
+    <element name="ENGINE_ID">
+      <inlineType primitiveType="NVARCHAR" length="30" precision="30" scale="0"/>
+    </element>
+    <element name="ALGO_TYPE_ID">
+      <inlineType primitiveType="NVARCHAR" length="32" precision="32" scale="0"/>
+    </element>
+    <element name="ALGO_TYPE_ID_1">
+      <inlineType primitiveType="NVARCHAR" length="32" precision="32" scale="0"/>
+    </element>
+    <filterExpression language="COLUMN_ENGINE">
+      <formula>(&quot;ALGO_TYPE_ID&quot; ='CEI_OFFERS_ELG_LEADING_PROD_CAT')</formula>
+    </filterExpression>
+    <input>
+      <entity>#//"SAP_CUAN".PRECO_CX_TASK</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="MAX_RESULT" sourceName="MAX_RESULT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ENGINE_ID" sourceName="ENGINE_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ALGO_TYPE_ID" sourceName="ALGO_TYPE_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ALGO_TYPE_ID_1" sourceName="ALGO_TYPE_ID"/>
+    </input>
+    <layout xCoordinate="417" yCoordinate="1611" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="EligibleOffers" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ROOT_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <input>
+      <entity>#//"SAP_CUAN".CUAND_OFR_CX_UID</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="ROW_NO"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ROOT_KEY" sourceName="ROOT_KEY"/>
+    </input>
+    <input>
+      <entity>#//"SAP_CUAN".PRECO_CX_ITEM_R</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+    </input>
+    <layout xCoordinate="22" yCoordinate="1053" width="-1" height="-1" expanded="true"/>
+    <join leftInput="#//EligibleOffers/"SAP_CUAN".CUAND_OFR_CX_UID" rightInput="#//EligibleOffers/"SAP_CUAN".PRECO_CX_ITEM_R" joinType="inner">
+      <leftElementName>DB_KEY</leftElementName>
+      <rightElementName>ITEM_ID</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="EligibleTasksOffers" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ROOT_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Projection">#//Tasks</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//EligibleOffers</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ROOT_KEY" sourceName="ROOT_KEY"/>
+    </input>
+    <layout xCoordinate="109" yCoordinate="957" width="-1" height="-1" expanded="true"/>
+    <join leftInput="#//EligibleTasksOffers/Tasks" rightInput="#//EligibleTasksOffers/EligibleOffers" joinType="inner">
+      <leftElementName>TASK_ID</leftElementName>
+      <rightElementName>TASK_ID</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="TaskswithLeadingItems" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <input>
+      <entity>#//"SAP_CUAN".PRECO_CX_RESULTS</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM" sourceName="RESULT_ITEM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM_TYPE" sourceName="RESULT_ITEM_TYPE"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Projection">#//Tasks</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+    </input>
+    <layout xCoordinate="397" yCoordinate="1515" width="181" height="82" expanded="true"/>
+    <join leftInput="#//TaskswithLeadingItems/"SAP_CUAN".PRECO_CX_RESULTS" rightInput="#//TaskswithLeadingItems/Tasks" joinType="inner">
+      <leftElementName>ENGINE_ID</leftElementName>
+      <rightElementName>ENGINE_ID</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="offer_prod_category">
+    <endUserTexts label=" "/>
+    <element name="MANDT">
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="DB_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="PARENT_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="PROD_CATEGORY_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <elementFilter elementName="MANDT">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="$$client$$"/>
+    </elementFilter>
+    <input>
+      <entity>#//"SAP_CUAN".CUAND_OFFER_PCAT</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="MANDT" sourceName="MANDT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="DB_KEY" sourceName="DB_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PARENT_KEY" sourceName="PARENT_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PROD_CATEGORY_KEY" sourceName="PROD_CATEGORY_KEY"/>
+    </input>
+    <layout xCoordinate="197" yCoordinate="1053" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="prod_category">
+    <endUserTexts label=" "/>
+    <element name="MANDT">
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="DB_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="HIERARCHY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="CATEGORY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="PARENT_CATEGORY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <elementFilter elementName="MANDT">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="$$client$$"/>
+    </elementFilter>
+    <input>
+      <entity>#//"SAP_CUAN".CUAND_PROD_CATEG</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="MANDT" sourceName="MANDT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="DB_KEY" sourceName="DB_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="HIERARCHY_ID" sourceName="HIERARCHY_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CATEGORY_ID" sourceName="CATEGORY_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PARENT_CATEGORY_ID" sourceName="PARENT_CATEGORY_ID"/>
+    </input>
+    <layout xCoordinate="351" yCoordinate="1053" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="prod_cate_hierid" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="MANDT">
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="DB_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="PARENT_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="PROD_CATEGORY_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="HIERARCHY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="CATEGORY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Projection">#//offer_prod_category</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="MANDT" sourceName="MANDT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="DB_KEY" sourceName="DB_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PARENT_KEY" sourceName="PARENT_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PROD_CATEGORY_KEY" sourceName="PROD_CATEGORY_KEY"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Projection">#//prod_category</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="HIERARCHY_ID" sourceName="HIERARCHY_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CATEGORY_ID" sourceName="CATEGORY_ID"/>
+    </input>
+    <layout xCoordinate="263" yCoordinate="957" width="190" height="82" expanded="true"/>
+    <join leftInput="#//prod_cate_hierid/offer_prod_category" rightInput="#//prod_cate_hierid/prod_category" joinType="inner">
+      <leftElementName>MANDT</leftElementName>
+      <leftElementName>PROD_CATEGORY_KEY</leftElementName>
+      <rightElementName>MANDT</rightElementName>
+      <rightElementName>DB_KEY</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="EligibleTasksOffersProductsCategory" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ROOT_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="PROD_CATEGORY_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="HIERARCHY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="CATEGORY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//EligibleTasksOffers</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ROOT_KEY" sourceName="ROOT_KEY"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//prod_cate_hierid</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="PROD_CATEGORY_KEY" sourceName="PROD_CATEGORY_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="HIERARCHY_ID" sourceName="HIERARCHY_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CATEGORY_ID" sourceName="CATEGORY_ID"/>
+    </input>
+    <layout xCoordinate="268" yCoordinate="861" width="181" height="82" expanded="true"/>
+    <join leftInput="#//EligibleTasksOffersProductsCategory/EligibleTasksOffers" rightInput="#//EligibleTasksOffersProductsCategory/prod_cate_hierid" joinType="inner" cardinality="C1_N">
+      <leftElementName>ROOT_KEY</leftElementName>
+      <rightElementName>PARENT_KEY</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="TaskAlgorithmParams">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="PARAM_OPTION">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="VALUE_TO">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <element name="ALGO_TYPE_PARAM_ID">
+      <inlineType primitiveType="NVARCHAR" length="32" precision="32" scale="0"/>
+    </element>
+    <element name="VALUE_FROM">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <elementFilter elementName="ALGO_TYPE_PARAM_ID">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="HIERARCHY_ID"/>
+    </elementFilter>
+    <elementFilter elementName="VALUE_FROM">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="false" value=""/>
+    </elementFilter>
+    <input>
+      <entity>#//"SAP_CUAN".PRECO_CX_TSK_PAR</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PARAM_OPTION" sourceName="PARAM_OPTION"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_TO" sourceName="VALUE_TO"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ALGO_TYPE_PARAM_ID" sourceName="ALGO_TYPE_PARAM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_FROM" sourceName="VALUE_FROM"/>
+      <layout xCoordinate="70" yCoordinate="30"/>
+    </input>
+    <layout xCoordinate="578" yCoordinate="765" width="221" height="64" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="TaskAlgorithmParams1">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="PARAM_OPTION">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="VALUE_TO">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <element name="ALGO_TYPE_PARAM_ID">
+      <inlineType primitiveType="NVARCHAR" length="32" precision="32" scale="0"/>
+    </element>
+    <element name="VALUE_FROM">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <elementFilter elementName="ALGO_TYPE_PARAM_ID">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="MIN_LIFT"/>
+    </elementFilter>
+    <elementFilter elementName="VALUE_FROM">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="false" value=""/>
+    </elementFilter>
+    <input>
+      <entity>#//"SAP_CUAN".PRECO_CX_TSK_PAR</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PARAM_OPTION" sourceName="PARAM_OPTION"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_TO" sourceName="VALUE_TO"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ALGO_TYPE_PARAM_ID" sourceName="ALGO_TYPE_PARAM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_FROM" sourceName="VALUE_FROM"/>
+      <layout xCoordinate="70" yCoordinate="30"/>
+    </input>
+    <layout xCoordinate="578" yCoordinate="765" width="221" height="64" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="TaskAlgorithmParams2">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="PARAM_OPTION">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="VALUE_TO">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <element name="ALGO_TYPE_PARAM_ID">
+      <inlineType primitiveType="NVARCHAR" length="32" precision="32" scale="0"/>
+    </element>
+    <element name="VALUE_FROM">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <elementFilter elementName="ALGO_TYPE_PARAM_ID">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="MIN_SUPPORT"/>
+    </elementFilter>
+    <elementFilter elementName="VALUE_FROM">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="false" value=""/>
+    </elementFilter>
+    <input>
+      <entity>#//"SAP_CUAN".PRECO_CX_TSK_PAR</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PARAM_OPTION" sourceName="PARAM_OPTION"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_TO" sourceName="VALUE_TO"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ALGO_TYPE_PARAM_ID" sourceName="ALGO_TYPE_PARAM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_FROM" sourceName="VALUE_FROM"/>
+      <layout xCoordinate="70" yCoordinate="30"/>
+    </input>
+    <layout xCoordinate="578" yCoordinate="765" width="221" height="64" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="TaskAlgorithmParams3">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="PARAM_OPTION">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="VALUE_TO">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <element name="ALGO_TYPE_PARAM_ID">
+      <inlineType primitiveType="NVARCHAR" length="32" precision="32" scale="0"/>
+    </element>
+    <element name="VALUE_FROM">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <elementFilter elementName="ALGO_TYPE_PARAM_ID">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="RESULT_CAT_ID"/>
+    </elementFilter>
+    <elementFilter elementName="VALUE_FROM">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="false" value=""/>
+    </elementFilter>
+    <input>
+      <entity>#//"SAP_CUAN".PRECO_CX_TSK_PAR</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PARAM_OPTION" sourceName="PARAM_OPTION"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_TO" sourceName="VALUE_TO"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ALGO_TYPE_PARAM_ID" sourceName="ALGO_TYPE_PARAM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_FROM" sourceName="VALUE_FROM"/>
+      <layout xCoordinate="70" yCoordinate="30"/>
+    </input>
+    <layout xCoordinate="578" yCoordinate="765" width="221" height="64" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="LeadingProductCategories">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <elementFilter elementName="LEADING_ITEM_TYPE">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="19"/>
+    </elementFilter>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//TaskswithLeadingItems</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM" sourceName="LEADING_ITEM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM_TYPE" sourceName="LEADING_ITEM_TYPE"/>
+    </input>
+    <layout xCoordinate="505" yCoordinate="1053" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="Leading_Products">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <elementFilter elementName="LEADING_ITEM_TYPE">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="13"/>
+    </elementFilter>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//TaskswithLeadingItems</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM" sourceName="LEADING_ITEM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM_TYPE" sourceName="LEADING_ITEM_TYPE"/>
+    </input>
+    <layout xCoordinate="505" yCoordinate="1437" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="MapVariantToBase">
+    <endUserTexts label=" "/>
+    <element name="DB_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="RESULT_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <input>
+      <entity>#//sap.hana-app.prodreco.internal::CA_D_CUAN_PRODUCT_VARIANT_TO_BASE_MAP_GENERIC</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="DB_KEY" sourceName="DB_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="RESULT_KEY" sourceName="RESULT_KEY"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="1437" width="232" height="64" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="leadingItemsConverted" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Projection">#//MapVariantToBase</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM" sourceName="RESULT_KEY"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Projection">#//Leading_Products</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM_TYPE" sourceName="LEADING_ITEM_TYPE"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="1341" width="-1" height="-1" expanded="true"/>
+    <join leftInput="#//leadingItemsConverted/MapVariantToBase" rightInput="#//leadingItemsConverted/Leading_Products" joinType="inner">
+      <leftElementName>DB_KEY</leftElementName>
+      <rightElementName>LEADING_ITEM</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="ProductCategory">
+    <endUserTexts label=" "/>
+    <element name="MANDT">
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <element name="DB_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="PARENT_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="CATEGORY_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <elementFilter elementName="MANDT">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="$$client$$"/>
+    </elementFilter>
+    <input>
+      <entity>#//"SAP_CUAN".CUAND_PROD_TOCAT</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="MANDT" sourceName="MANDT"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="DB_KEY" sourceName="DB_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PARENT_KEY" sourceName="PARENT_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CATEGORY_KEY" sourceName="CATEGORY_KEY"/>
+    </input>
+    <layout xCoordinate="820" yCoordinate="1341" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="prodToCategory" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="CATEGORY_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="MANDT">
+      <inlineType primitiveType="NVARCHAR" length="3" precision="3" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//leadingItemsConverted</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM" sourceName="LEADING_ITEM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM_TYPE" sourceName="LEADING_ITEM_TYPE"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Projection">#//ProductCategory</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="CATEGORY_KEY" sourceName="CATEGORY_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="MANDT" sourceName="MANDT"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="1245" width="-1" height="-1" expanded="true"/>
+    <join leftInput="#//prodToCategory/leadingItemsConverted" rightInput="#//prodToCategory/ProductCategory" joinType="inner" cardinality="C1_N">
+      <leftElementName>LEADING_ITEM</leftElementName>
+      <rightElementName>PARENT_KEY</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="prodcategoryToCategoryID" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="CATEGORY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//prodToCategory</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM" sourceName="LEADING_ITEM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM_TYPE" sourceName="LEADING_ITEM_TYPE"/>
+    </input>
+    <input>
+      <entity>#//"SAP_CUAN".CUAND_PROD_CATEG</entity>
+      <mapping xsi:type="Type:ElementMapping" targetName="CATEGORY_ID" sourceName="CATEGORY_ID"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="1149" width="-1" height="-1" expanded="true"/>
+    <join leftInput="#//prodcategoryToCategoryID/prodToCategory" rightInput="#//prodcategoryToCategoryID/"SAP_CUAN".CUAND_PROD_CATEG" joinType="inner">
+      <leftElementName>MANDT</leftElementName>
+      <leftElementName>CATEGORY_KEY</leftElementName>
+      <rightElementName>MANDT</rightElementName>
+      <rightElementName>DB_KEY</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="Categories">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID_C">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="CATEGORY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//prodcategoryToCategoryID</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID_C" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="CATEGORY_ID" sourceName="CATEGORY_ID"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="1053" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="Join_2" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="CATEGORY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="TASK_ID_C">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM" aggregationBehavior="NONE">
+      <inlineType name="NVARCHAR" primitiveType="NVARCHAR" length="50"/>
+      <calculationDefinition language="COLUMN_ENGINE">
+        <formula>if(isnull(&quot;LEADING_ITEM&quot;),&quot;CATEGORY_ID&quot;,&quot;LEADING_ITEM&quot;)</formula>
+      </calculationDefinition>
+    </element>
+    <element name="LEADING_ITEM_TYPE" aggregationBehavior="NONE">
+      <inlineType name="NVARCHAR" primitiveType="NVARCHAR" length="2"/>
+      <calculationDefinition language="COLUMN_ENGINE">
+        <formula>19&#xD;
+</formula>
+      </calculationDefinition>
+    </element>
+    <element name="TASKID" aggregationBehavior="NONE">
+      <inlineType name="INTEGER" primitiveType="INTEGER"/>
+      <calculationDefinition language="COLUMN_ENGINE">
+        <formula>if(isnull(&quot;LEADING_ITEM&quot;),&quot;TASK_ID_C&quot;,&quot;TASK_ID&quot;)</formula>
+      </calculationDefinition>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Projection">#//LeadingProductCategories</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM" sourceName="LEADING_ITEM"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Projection">#//Categories</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="CATEGORY_ID" sourceName="CATEGORY_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID_C" sourceName="TASK_ID_C"/>
+    </input>
+    <layout xCoordinate="505" yCoordinate="957" width="-1" height="-1" expanded="true"/>
+    <join leftInput="#//Join_2/LeadingProductCategories" rightInput="#//Join_2/Categories" joinType="fullOuter">
+      <leftElementName>LEADING_ITEM</leftElementName>
+      <leftElementName>TASK_ID</leftElementName>
+      <rightElementName>CATEGORY_ID</rightElementName>
+      <rightElementName>TASK_ID_C</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:Aggregation" name="Aggregation_2">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType name="INTEGER" primitiveType="INTEGER" length="0" precision="0" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM">
+      <inlineType name="NVARCHAR" primitiveType="NVARCHAR" length="50" precision="0" scale="0"/>
+    </element>
+    <element name="LEADING_ITEM_TYPE">
+      <inlineType name="NVARCHAR" primitiveType="NVARCHAR" length="2" precision="0" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//Join_2</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASKID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM" sourceName="ITEM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="LEADING_ITEM_TYPE" sourceName="LEADING_ITEM_TYPE"/>
+    </input>
+    <layout xCoordinate="465" yCoordinate="861" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="OfferWithLeadingProdCate" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ROOT_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="PROD_CATEGORY_KEY">
+      <inlineType primitiveType="VARBINARY" length="16" precision="16" scale="0"/>
+    </element>
+    <element name="HIERARCHY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//EligibleTasksOffersProductsCategory</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ROOT_KEY" sourceName="ROOT_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="PROD_CATEGORY_KEY" sourceName="PROD_CATEGORY_KEY"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="HIERARCHY_ID" sourceName="HIERARCHY_ID"/>
+      <layout xCoordinate="50" yCoordinate="30"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Aggregation">#//Aggregation_2</viewNode>
+      <layout xCoordinate="361" yCoordinate="30"/>
+    </input>
+    <layout xCoordinate="424" yCoordinate="765" width="140" height="59" expanded="true"/>
+    <join leftInput="#//OfferWithLeadingProdCate/EligibleTasksOffersProductsCategory" rightInput="#//OfferWithLeadingProdCate/Aggregation_2" joinType="inner">
+      <leftElementName>CATEGORY_ID</leftElementName>
+      <leftElementName>TASK_ID</leftElementName>
+      <rightElementName>LEADING_ITEM</rightElementName>
+      <rightElementName>TASK_ID</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="TasksOffersWithLeadingProducts" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="HIERARCHY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="TASK_ID_B">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="VALUE_FROM">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//OfferWithLeadingProdCate</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="HIERARCHY_ID" sourceName="HIERARCHY_ID"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Projection">#//TaskAlgorithmParams</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID_B" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_FROM" sourceName="VALUE_FROM"/>
+    </input>
+    <layout xCoordinate="374" yCoordinate="669" width="271" height="82" expanded="true"/>
+    <join leftInput="#//TasksOffersWithLeadingProducts/OfferWithLeadingProdCate" rightInput="#//TasksOffersWithLeadingProducts/TaskAlgorithmParams" joinType="leftOuter" cardinality="CN_1">
+      <leftElementName>TASK_ID</leftElementName>
+      <leftElementName>HIERARCHY_ID</leftElementName>
+      <rightElementName>TASK_ID</rightElementName>
+      <rightElementName>VALUE_FROM</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:Aggregation" name="Aggregation_1">
+    <endUserTexts label=" "/>
+    <element name="COUNT" aggregationBehavior="COUNT">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Projection">#//TaskAlgorithmParams</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="COUNT" sourceName="TASK_ID"/>
+      <layout xCoordinate="70" yCoordinate="30"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="669" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="Join_1" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="HIERARCHY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="TASK_ID_B">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="VALUE_FROM">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <element name="COUNT">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//TasksOffersWithLeadingProducts</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="HIERARCHY_ID" sourceName="HIERARCHY_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID_B" sourceName="TASK_ID_B"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_FROM" sourceName="VALUE_FROM"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Aggregation">#//Aggregation_1</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="COUNT" sourceName="COUNT"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="573" width="-1" height="-1" expanded="true"/>
+    <join leftInput="#//Join_1/TasksOffersWithLeadingProducts" rightInput="#//Join_1/Aggregation_1"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="Projection_2">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="HIERARCHY_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="TASK_ID_B">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="VALUE_FROM">
+      <inlineType primitiveType="NVARCHAR" length="100" precision="100" scale="0"/>
+    </element>
+    <element name="COUNT">
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ELIGIBLE" aggregationBehavior="NONE">
+      <inlineType name="VARCHAR" primitiveType="VARCHAR" length="1"/>
+      <calculationDefinition language="COLUMN_ENGINE">
+        <formula>if( &#xD;
+    ( &#xD;
+        (&quot;TASK_ID_B&quot;&lt;=0) and            (&quot;VALUE_FROM&quot;='')and&#xD;
+        (&quot;COUNT&quot; >=1) &#xD;
+    ),'','X'&#xD;
+)</formula>
+      </calculationDefinition>
+    </element>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//Join_1</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="HIERARCHY_ID" sourceName="HIERARCHY_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID_B" sourceName="TASK_ID_B"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="VALUE_FROM" sourceName="VALUE_FROM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="COUNT" sourceName="COUNT"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="495" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="Projection_3">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ELIGIBLE">
+      <inlineType name="VARCHAR" primitiveType="VARCHAR" length="1" precision="0" scale="0"/>
+    </element>
+    <elementFilter elementName="ELIGIBLE">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="X"/>
+    </elementFilter>
+    <input>
+      <viewNode xsi:type="View:Projection">#//Projection_2</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ELIGIBLE" sourceName="ELIGIBLE"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="417" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Rank" name="Rank">
+    <endUserTexts label=" "/>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="RANK" aggregationBehavior="NONE">
+      <inlineType primitiveType="BIGINT"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Projection">#//Projection_3</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+    </input>
+    <layout xCoordinate="659" yCoordinate="339" width="-1" height="-1" expanded="true"/>
+    <windowFunction dynamicPartitionElements="true">
+      <partitionElement>#//Rank/TASK_ID</partitionElement>
+      <order byElement="#//Rank/SCORE" direction="DESC"/>
+      <rankThreshold>
+        <constantValue>100</constantValue>
+      </rankThreshold>
+      <rankElement>#//Rank/RANK</rankElement>
+    </windowFunction>
+  </viewNode>
+  <viewNode xsi:type="View:JoinNode" name="MaxResults" joinOrder="OUTSIDE_IN">
+    <endUserTexts label=" "/>
+    <element name="RANK">
+      <inlineType primitiveType="BIGINT" length="0" precision="0" scale="0"/>
+    </element>
+    <element name="MAX_RESULT">
+      <inlineType primitiveType="SMALLINT" length="5" precision="5" scale="0"/>
+    </element>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="ITEM_TYPE">
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="ITEM_ID">
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="TO_KEEP" aggregationBehavior="NONE">
+      <inlineType name="VARCHAR" primitiveType="VARCHAR" length="1"/>
+      <calculationDefinition language="COLUMN_ENGINE">
+        <formula>if(&quot;RANK&quot;&lt;=&quot;MAX_RESULT&quot;,'X','')</formula>
+      </calculationDefinition>
+    </element>
+    <element name="SCORE" aggregationBehavior="NONE">
+      <endUserTexts label="SCORE"/>
+      <inlineType name="INTEGER" primitiveType="INTEGER"/>
+      <calculationDefinition language="COLUMN_ENGINE">
+        <formula>1</formula>
+      </calculationDefinition>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Rank">#//Rank</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="RANK" sourceName="RANK"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="ITEM_ID" sourceName="ITEM_ID"/>
+    </input>
+    <input>
+      <viewNode xsi:type="View:Projection">#//Tasks</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="MAX_RESULT" sourceName="MAX_RESULT"/>
+    </input>
+    <layout xCoordinate="746" yCoordinate="243" width="-1" height="-1" expanded="true"/>
+    <join leftInput="#//MaxResults/Rank" rightInput="#//MaxResults/Tasks" joinType="inner">
+      <leftElementName>TASK_ID</leftElementName>
+      <rightElementName>TASK_ID</rightElementName>
+    </join>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="FinalFilter">
+    <endUserTexts label=" "/>
+    <element name="TO_KEEP">
+      <inlineType name="VARCHAR" primitiveType="VARCHAR" length="1" precision="0" scale="0"/>
+    </element>
+    <element name="TASK_ID">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="RESULT_ITEM">
+      <endUserTexts label="RESULT_ITEM"/>
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="RESULT_ITEM_TYPE">
+      <endUserTexts label="RESULT_ITEM_TYPE"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="SCORE">
+      <endUserTexts label="SCORE"/>
+      <inlineType name="INTEGER" primitiveType="INTEGER" length="0" precision="0" scale="0"/>
+    </element>
+    <elementFilter elementName="TO_KEEP">
+      <valueFilter xsi:type="Column:SingleValueFilter" including="true" value="X"/>
+    </elementFilter>
+    <input>
+      <viewNode xsi:type="View:JoinNode">#//MaxResults</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TO_KEEP" sourceName="TO_KEEP"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="RESULT_ITEM" sourceName="ITEM_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="RESULT_ITEM_TYPE" sourceName="ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+    </input>
+    <layout xCoordinate="746" yCoordinate="165" width="-1" height="-1" expanded="true"/>
+  </viewNode>
+  <viewNode xsi:type="View:Projection" name="Projection">
+    <element name="TASK_ID" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="TASK_ID"/>
+      <inlineType primitiveType="INTEGER" length="10" precision="10" scale="0"/>
+    </element>
+    <element name="RESULT_ITEM" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="RESULT_ITEM"/>
+      <inlineType primitiveType="NVARCHAR" length="50" precision="50" scale="0"/>
+    </element>
+    <element name="RESULT_ITEM_TYPE" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="RESULT_ITEM_TYPE"/>
+      <inlineType primitiveType="NVARCHAR" length="2" precision="2" scale="0"/>
+    </element>
+    <element name="SCORE" aggregationBehavior="NONE" drillDownEnablement="DRILL_DOWN">
+      <endUserTexts label="SCORE"/>
+      <inlineType name="INTEGER" primitiveType="INTEGER" length="0" precision="0" scale="0"/>
+    </element>
+    <input>
+      <viewNode xsi:type="View:Projection">#//FinalFilter</viewNode>
+      <mapping xsi:type="Type:ElementMapping" targetName="TASK_ID" sourceName="TASK_ID"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="RESULT_ITEM" sourceName="RESULT_ITEM"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="RESULT_ITEM_TYPE" sourceName="RESULT_ITEM_TYPE"/>
+      <mapping xsi:type="Type:ElementMapping" targetName="SCORE" sourceName="SCORE"/>
+    </input>
+    <layout xCoordinate="746" yCoordinate="87" width="0" height="0" expanded="true"/>
+  </viewNode>
+  <viewLayout relativeWidthScenario="63"/>
+</View:ColumnView>

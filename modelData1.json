@@ -1,0 +1,745 @@
+{
+  "__metadata": {
+    "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Versions('T')",
+    "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Versions('T')",
+    "type": "PROD_RECO_SRV.Version"
+  },
+  "Status": {
+    "__metadata": {
+      "type": "PROD_RECO_SRV.StatusCT"
+    },
+    "StatusID": "D",
+    "StatusDescription": "Draft"
+  },
+  "EngineId": "SAP_CROSS_SELL",
+  "ModelId": "SADFSAF",
+  "VersionId": "T",
+  "EngineDescription": "SAP - Cross-Sell",
+  "ModelDescription": "(Empty model)",
+  "StartDate": null,
+  "TimeZone": "",
+  "CreatedOn": "2018-05-01T20:02:26.000Z",
+  "CreatedBy": "POTHURAJNI",
+  "CreatedByFull": "Nirmal Pothuraj",
+  "ModifiedOn": "2018-06-05T13:52:35.000Z",
+  "ModifiedBy": "SULTANN",
+  "ModifiedByFull": "Neha Sultan",
+  "SavedOn": "2018-05-01T20:02:26.000Z",
+  "ReferenceEngineId": "",
+  "ReferenceModelId": "",
+  "ReferenceEngineDescription": "",
+  "Tag": "",
+  "ResultType": "13",
+  "ObjectTypeId": "P",
+  "Cacheable": false,
+  "ModelTypes": {
+    "results": [
+      {
+        "__metadata": {
+          "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/ModelTypes('SAP_CROSS_SELL')",
+          "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/ModelTypes('SAP_CROSS_SELL')",
+          "type": "PROD_RECO_SRV.ModelType"
+        },
+        "Search": {
+          "__metadata": {
+            "type": "PROD_RECO_SRV.SimpleSearchCT"
+          },
+          "SearchTerm": ""
+        },
+        "ModelTypeId": "SAP_CROSS_SELL",
+        "ObjectTypeId": "P",
+        "ResultType": "13",
+        "ModelTypeDescription": "SAP - Cross-Sell",
+        "ResultTypeDescription": "SAP Marketing Product",
+        "Cacheable": false,
+        "Models": {
+          "__deferred": {
+            "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/ModelTypes('SAP_CROSS_SELL')/Models"
+          }
+        },
+        "Scenarios": {
+          "results": [
+            {
+              "__metadata": {
+                "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_CHECKOUT')",
+                "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_CHECKOUT')",
+                "type": "PROD_RECO_SRV.Scenario"
+              },
+              "Search": {
+                "__metadata": {
+                  "type": "PROD_RECO_SRV.SimpleSearchCT"
+                },
+                "SearchTerm": ""
+              },
+              "MaxResults": 20,
+              "IaType": "",
+              "Cacheable": false,
+              "IaTypeDesc": "",
+              "Language": "EN",
+              "ScenarioId": "SAP_CROSS_SELL_WEB_CHECKOUT",
+              "ScenarioDescription": "Cross-selling in Web Checkout Page",
+              "CommMedium": "WEB",
+              "CommMediumDesc": "Web",
+              "PrecoModelType": "SAP_CROSS_SELL",
+              "PrecoModelTypeDesc": "SAP - Cross-Sell",
+              "PrecoModelStatus": "D",
+              "PrecoModelStartDate": null,
+              "ScenarioName": "Cross-selling in Web Checkout Page",
+              "PrecoModelStatusDesc": "Draft",
+              "ResultType": "13",
+              "ObjectTypeId": "P",
+              "UserType": "SAP_HYBRIS_CONSUMER",
+              "SourceSystemType": "SAP_HYBRIS_COMMERCE",
+              "SourceSystemId": "",
+              "SourceObjectType": "CUAN_PRODUCT",
+              "GenerationStatus": "",
+              "GenerationStatusDesc": "Not Generated",
+              "PrecoDefaultModel": "SADFSAF",
+              "ModelTypes": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_CHECKOUT')/ModelTypes"
+                }
+              },
+              "Anchors": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_CHECKOUT')/Anchors"
+                }
+              },
+              "KPIs": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_CHECKOUT')/KPIs"
+                }
+              },
+              "ScenarioTexts": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_CHECKOUT')/ScenarioTexts"
+                }
+              },
+              "Hmac": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_CHECKOUT')/Hmac"
+                }
+              }
+            },
+            {
+              "__metadata": {
+                "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_PRODUCT_DETAILS')",
+                "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_PRODUCT_DETAILS')",
+                "type": "PROD_RECO_SRV.Scenario"
+              },
+              "Search": {
+                "__metadata": {
+                  "type": "PROD_RECO_SRV.SimpleSearchCT"
+                },
+                "SearchTerm": ""
+              },
+              "MaxResults": 20,
+              "IaType": "",
+              "Cacheable": false,
+              "IaTypeDesc": "",
+              "Language": "EN",
+              "ScenarioId": "SAP_CROSS_SELL_WEB_PRODUCT_DETAILS",
+              "ScenarioDescription": "Cross-selling in Web Product Details Page",
+              "CommMedium": "WEB",
+              "CommMediumDesc": "Web",
+              "PrecoModelType": "SAP_CROSS_SELL",
+              "PrecoModelTypeDesc": "SAP - Cross-Sell",
+              "PrecoModelStatus": "D",
+              "PrecoModelStartDate": null,
+              "ScenarioName": "Cross-selling in Web Product Details Page",
+              "PrecoModelStatusDesc": "Draft",
+              "ResultType": "13",
+              "ObjectTypeId": "P",
+              "UserType": "SAP_HYBRIS_CONSUMER",
+              "SourceSystemType": "SAP_HYBRIS_COMMERCE",
+              "SourceSystemId": "",
+              "SourceObjectType": "CUAN_PRODUCT",
+              "GenerationStatus": "",
+              "GenerationStatusDesc": "Not Generated",
+              "PrecoDefaultModel": "SADFSAF",
+              "ModelTypes": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_PRODUCT_DETAILS')/ModelTypes"
+                }
+              },
+              "Anchors": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_PRODUCT_DETAILS')/Anchors"
+                }
+              },
+              "KPIs": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_PRODUCT_DETAILS')/KPIs"
+                }
+              },
+              "ScenarioTexts": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_PRODUCT_DETAILS')/ScenarioTexts"
+                }
+              },
+              "Hmac": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Scenarios('SAP_CROSS_SELL_WEB_PRODUCT_DETAILS')/Hmac"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "ModelDetails": {
+    "__metadata": {
+      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/ModelDetails(EngineId='SAP_CROSS_SELL',ModelId='SADFSAF')",
+      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/ModelDetails(EngineId='SAP_CROSS_SELL',ModelId='SADFSAF')",
+      "type": "PROD_RECO_SRV.ModelDetail"
+    },
+    "EngineId": "SAP_CROSS_SELL",
+    "TotalGenDuration": "0",
+    "ModelId": "SADFSAF",
+    "GenerationStatus": "",
+    "GenerationStatusT": "Not Generated",
+    "GeneratedOn": null
+  },
+  "Parameters": {
+    "__deferred": {
+      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Versions('T')/Parameters"
+    }
+  },
+  "Tasks": {
+    "__deferred": {
+      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Versions('T')/Tasks"
+    }
+  },
+  "Steps": {
+    "results": [
+      {
+        "__metadata": {
+          "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Steps(EngineId='SAP_CROSS_SELL',ModelId='SADFSAF',StepId=1)",
+          "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Steps(EngineId='SAP_CROSS_SELL',ModelId='SADFSAF',StepId=1)",
+          "type": "PROD_RECO_SRV.Step"
+        },
+        "EngineId": "SAP_CROSS_SELL",
+        "StepType": "",
+        "ModelId": "SADFSAF",
+        "StepId": 1,
+        "MaximumMergeResult": 20,
+        "MergeType": "W",
+        "Tasks": {
+          "results": [
+            {
+              "__metadata": {
+                "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Tasks(guid'6c0b84b7-5523-1ed8-9a98-f0711d70ba19')",
+                "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Tasks(guid'6c0b84b7-5523-1ed8-9a98-f0711d70ba19')",
+                "type": "PROD_RECO_SRV.Task"
+              },
+              "LastGenerationDuration": "0",
+              "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+              "ItemCount": 0,
+              "TaskId": 22267,
+              "EngineId": "SAP_CROSS_SELL",
+              "UserCount": 0,
+              "ModelId": "SADFSAF",
+              "TransCount": 0,
+              "StepId": 1,
+              "AlgorithmId": "CEI_IA_SALES_SQL_ASS_USER_ID",
+              "Description": "Item to item association based on interaction sales documents grouped by consumer using SQL",
+              "MaximumResult": 20,
+              "Weight": 100,
+              "Name": "Often Bought Together Across Transactions (Interactions)",
+              "GenerationStatus": "",
+              "GenerationStatusDescription": "Not Generated",
+              "GeneratedOn": null,
+              "Cacheable": true,
+              "TaskDatasourceParameters": {
+                "results": [
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d747a19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d747a19')",
+                      "type": "PROD_RECO_SRV.TaskDatasourceParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d747a19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "DataSourceParameterId": "CEI_IC_IC_TYPE",
+                    "DataSourceId": "CEI_IC_CONSUMER",
+                    "Option": "EQ",
+                    "ValueFrom": "00",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "Undefined",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d743a19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d743a19')",
+                      "type": "PROD_RECO_SRV.TaskDatasourceParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d743a19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "DataSourceParameterId": "CEI_IC_IC_TYPE",
+                    "DataSourceId": "CEI_IC_CONSUMER",
+                    "Option": "EQ",
+                    "ValueFrom": "01",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "Person",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d73fa19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d73fa19')",
+                      "type": "PROD_RECO_SRV.TaskDatasourceParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d73fa19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "DataSourceParameterId": "CEI_IA_TIMESTAMP_DYNAMIC",
+                    "DataSourceId": "CEI_IA_IC",
+                    "Option": "LA",
+                    "ValueFrom": "60",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d73ba19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d73ba19')",
+                      "type": "PROD_RECO_SRV.TaskDatasourceParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d73ba19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "DataSourceParameterId": "CEI_IA_TYPE",
+                    "DataSourceId": "CEI_IA_IC",
+                    "Option": "EQ",
+                    "ValueFrom": "SALES_ORDER",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "Sales Order",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d737a19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskDatasourceParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d737a19')",
+                      "type": "PROD_RECO_SRV.TaskDatasourceParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d737a19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "DataSourceParameterId": "CUANPROD-VALID_TO",
+                    "DataSourceId": "CEI_CUAN_PRODUCT",
+                    "Option": "EQ",
+                    "ValueFrom": "VALID",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "Valid Products",
+                    "ValueToDesc": ""
+                  }
+                ]
+              },
+              "Algorithms": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Tasks(guid'6c0b84b7-5523-1ed8-9a98-f0711d70ba19')/Algorithms"
+                }
+              },
+              "TaskAlgorithmTypeParameters": {
+                "results": [
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d733a19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d733a19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d733a19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "OUTLIER_REMOVAL",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "X",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d72fa19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d72fa19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d72fa19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "CONVERT_TO_BASE",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d72ba19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d72ba19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d72ba19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "BLOCKED_THRESHOLD",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "60",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d727a19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d727a19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d727a19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "WARNING_THRESHOLD",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "30",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d723a19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d723a19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d723a19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "MIN_CONFIDENCE",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "0.0",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d71fa19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d71fa19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d71fa19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "MIN_SUPPORT",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "0.0",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d71ba19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d71ba19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d71ba19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "TIME_FOR_GENERATION",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "BT",
+                    "ValueFrom": "00",
+                    "ValueTo": "23",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "00:00 Hours",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d717a19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d717a19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d717a19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "GENERATION_REFRESH_RATE",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "168",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d713a19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d713a19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d713a19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "MIN_LIFT",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "0.5",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": ""
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d70fa19')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f0711d70fa19')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f0711d70fa19",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f0711d70ba19",
+                    "AlgoTypeParamId": "SCORE_TYPE",
+                    "AlgoTypeId": "SQL_ASSOCIATION_USER_ITEM",
+                    "Option": "EQ",
+                    "ValueFrom": "SUPPORT",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "Support",
+                    "ValueToDesc": ""
+                  }
+                ]
+              },
+              "RuleArtefacts": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Tasks(guid'6c0b84b7-5523-1ed8-9a98-f0711d70ba19')/RuleArtefacts"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "__metadata": {
+          "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Steps(EngineId='SAP_CROSS_SELL',ModelId='SADFSAF',StepId=2)",
+          "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Steps(EngineId='SAP_CROSS_SELL',ModelId='SADFSAF',StepId=2)",
+          "type": "PROD_RECO_SRV.Step"
+        },
+        "EngineId": "SAP_CROSS_SELL",
+        "StepType": "K",
+        "ModelId": "SADFSAF",
+        "StepId": 2,
+        "MaximumMergeResult": 20,
+        "MergeType": "W",
+        "Tasks": {
+          "results": []
+        }
+      },
+      {
+        "__metadata": {
+          "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Steps(EngineId='SAP_CROSS_SELL',ModelId='SADFSAF',StepId=3)",
+          "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Steps(EngineId='SAP_CROSS_SELL',ModelId='SADFSAF',StepId=3)",
+          "type": "PROD_RECO_SRV.Step"
+        },
+        "EngineId": "SAP_CROSS_SELL",
+        "StepType": "F",
+        "ModelId": "SADFSAF",
+        "StepId": 3,
+        "MaximumMergeResult": 20,
+        "MergeType": "I",
+        "Tasks": {
+          "results": [
+            {
+              "__metadata": {
+                "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Tasks(guid'6c0b84b7-5523-1ed8-9a98-f5265f0d7a1b')",
+                "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Tasks(guid'6c0b84b7-5523-1ed8-9a98-f5265f0d7a1b')",
+                "type": "PROD_RECO_SRV.Task"
+              },
+              "LastGenerationDuration": "0",
+              "TaskKey": "6c0b84b7-5523-1ed8-9a98-f5265f0d7a1b",
+              "ItemCount": 0,
+              "TaskId": 22268,
+              "EngineId": "SAP_CROSS_SELL",
+              "UserCount": 0,
+              "ModelId": "SADFSAF",
+              "TransCount": 0,
+              "StepId": 3,
+              "AlgorithmId": "SOLD_REMOVAL_IA_CAT",
+              "Description": "Remove item categories already purchased by a consumer",
+              "MaximumResult": 20,
+              "Weight": 100,
+              "Name": "Remove Item Categories Already Purchased (Interactions)",
+              "GenerationStatus": "",
+              "GenerationStatusDescription": "Not Generated",
+              "GeneratedOn": null,
+              "Cacheable": false,
+              "TaskDatasourceParameters": {
+                "results": []
+              },
+              "Algorithms": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Tasks(guid'6c0b84b7-5523-1ed8-9a98-f5265f0d7a1b')/Algorithms"
+                }
+              },
+              "TaskAlgorithmTypeParameters": {
+                "results": [
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f5265f0dfa1b')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f5265f0dfa1b')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f5265f0dfa1b",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f5265f0d7a1b",
+                    "AlgoTypeParamId": "IA_TYPE",
+                    "AlgoTypeId": "SOLD_REMOVAL_IA_CAT",
+                    "Option": "EQ",
+                    "ValueFrom": "SALES_ORDER",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "Sales Order",
+                    "ValueToDesc": "",
+                    "Name": "Interaction Type",
+                    "Type": "ME",
+                    "ValueHelp": "T",
+                    "ValueType": "S",
+                    "Description": "Interaction Type",
+                    "operators": [
+                      {
+                        "name": "Equal To",
+                        "key": "EQ",
+                        "value1Enabled": true,
+                        "value2Enabled": false
+                      }
+                    ],
+                    "EnabledValues": {
+                      "value1Enabled": true,
+                      "value2Enabled": false
+                    },
+                    "ValueFromValid": true,
+                    "ValueToValid": true,
+                    "Count": 1,
+                    "position": 0,
+                    "isLast": true
+                  },
+                  {
+                    "__metadata": {
+                      "id": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f5265f0dba1b')",
+                      "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/TaskAlgorithmTypeParameters(guid'6c0b84b7-5523-1ed8-9a98-f5265f0dba1b')",
+                      "type": "PROD_RECO_SRV.TaskAlgorithmTypeParameter"
+                    },
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f5265f0dba1b",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f5265f0d7a1b",
+                    "AlgoTypeParamId": "TIME_FRAME",
+                    "AlgoTypeId": "SOLD_REMOVAL_IA_CAT",
+                    "Option": "EQ",
+                    "ValueFrom": "60",
+                    "ValueTo": "",
+                    "ValueFromDate": null,
+                    "ValueToDate": null,
+                    "ValueFromDesc": "",
+                    "ValueToDesc": "",
+                    "Name": "Interactions Timeframe (in days)",
+                    "Type": "SE",
+                    "ValueHelp": "",
+                    "ValueType": "I",
+                    "Description": "Restrict timeframe between interactions",
+                    "operators": [
+                      {
+                        "name": "Equal To",
+                        "key": "EQ",
+                        "value1Enabled": true,
+                        "value2Enabled": false
+                      }
+                    ],
+                    "EnabledValues": {
+                      "value1Enabled": true,
+                      "value2Enabled": false
+                    },
+                    "ValueFromValid": true,
+                    "ValueToValid": true,
+                    "Count": 1,
+                    "position": 0,
+                    "isLast": true
+                  },
+                  {
+                    "AlgoTypeId": "SOLD_REMOVAL_IA_CAT",
+                    "AlgoTypeParamId": "CONVERT_TO_BASE",
+                    "Option": "EQ",
+                    "ParameterId": "6c0b84b7-5523-1ed8-9a98-f64c6e12da1b",
+                    "TaskKey": "6c0b84b7-5523-1ed8-9a98-f5265f0d7a1b",
+                    "ValueFrom": "X",
+                    "ValueFromDate": null,
+                    "ValueFromDesc": "",
+                    "ValueTo": "",
+                    "ValueToDate": null,
+                    "ValueToDesc": "",
+                    "Name": "Convert to Base Product",
+                    "Type": "SO",
+                    "ValueHelp": "",
+                    "ValueType": "B",
+                    "Description": "Convert a Product Variant to a Base Product",
+                    "operators": [
+                      {
+                        "name": "Equal To",
+                        "key": "EQ",
+                        "value1Enabled": true,
+                        "value2Enabled": false
+                      },
+                      {
+                        "name": "Not Equal To",
+                        "key": "NE",
+                        "value1Enabled": true,
+                        "value2Enabled": false
+                      }
+                    ],
+                    "EnabledValues": {
+                      "value1Enabled": true,
+                      "value2Enabled": false
+                    },
+                    "ValueFromValid": true,
+                    "ValueToValid": true,
+                    "boolDDLValueFrom": "X",
+                    "Count": 1,
+                    "position": 0,
+                    "isLast": true
+                  }
+                ]
+              },
+              "RuleArtefacts": {
+                "__deferred": {
+                  "uri": "https://webidetesting0246470-fiori.dispatcher.int.sap.hana.ondemand.com/sap/opu/odata/sap/PROD_RECO_SRV/Tasks(guid'6c0b84b7-5523-1ed8-9a98-f5265f0d7a1b')/RuleArtefacts"
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

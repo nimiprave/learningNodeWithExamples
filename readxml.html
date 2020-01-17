@@ -1,0 +1,21 @@
+<input type='file' accept='*' onchange='openFile(event)'>
+<br>
+<p id='output'/>
+<script>
+    var openFile = function(event) {
+        
+    var input = event.target;
+    var reader = new FileReader();
+    var xml = input.files[0];
+   
+    reader.readAsText(input.files[0]);
+    reader.onload = function(){
+        var dataastext = reader.result;
+        var output = document.getElementById('output');
+        var parser = new DOMParser();
+        var xmlDoc = parser.parseFromString(dataastext,"text/xml");
+        var texttoshow = xmlDoc.getElementById("PRECO_CX_TSK_PAR");    
+        output.innerText = texttoshow; 
+    };
+};
+</script>
